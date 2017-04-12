@@ -32,7 +32,6 @@ class Writer:
         request += "\n{0}".format(flow.request.content)
         response += "\n{0}".format(flow.response.content)
         param = (flow.request.timestamp_start, flow.request.timestamp_end, flow.request.method, flow.request.url, flow.response.status_code, request, response, self.detail(flow))
-        print(sql)
         self.c.execute(sql, param)
         self.conn.commit()
 
